@@ -1,0 +1,311 @@
+﻿
+@{
+    ViewBag.Title = "Kategoriler";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+@model List<ZYClkETicaret.WEBUI.Models.Kategori>
+
+<div class="content">
+    <div class="container">
+        <div class="all-products-details">
+            <div class="row">
+                <div class="col-md-7"><h2>Categories</h2><span class="products-avalabile">Showing all 12 products</span></div>
+                <div class="col-md-5">
+                    <div class="sort-dropdown float-right">
+                        <span>Deafult sorting <i class="icon-515" title="515"></i></span>
+                        <ul>
+                            <li><a href="#">Cost low to high</a></li>
+                            <li><a href="#">Cost hight to low</a></li>
+                            <li><a href="#">Sales low to high</a></li>
+                            <li><a href="#">Sales high to low</a></li>
+                            <li><a href="#">Top low to high</a></li>
+                            <li><a href="#">Top high to low</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown open-dropdown">
+                            <span><i class="icon-515" title="515"></i>Accessories</span>
+                            <ul>
+                                <li><a href="#">Footwear</a></li>
+                                <li><a href="#">Jackets</a></li>
+                                <li><a href="#">Shirts</a></li>
+                                <li><a href="#">Shorts</a></li>
+                                <li><a href="#">Trousers</a></li>
+                                <li><a href="#">Sweaters</a></li>
+                                <li><a href="#">Jeans</a></li>
+                                <li><a href="#">Mens</a></li>
+                                <li><a href="#">Woman</a></li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Brands</span>
+                            <ul>
+                                <li><a href="#">Addidas</a></li>
+                                <li><a href="#">Nike</a></li>
+                                <li><a href="#">D &amp; G</a></li>
+                                <li><a href="#">Gucci</a></li>
+                                <li><a href="#">Armani</a></li>
+                                <li><a href="#">Levi's</a></li>
+                                <li><a href="#">Active Wear</a></li>
+                                <li><a href="#">G Star</a></li>
+                                <li><a href="#">Soft Gray</a></li>
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Color</span>
+                            <ul>
+                                <li><a href="#">Red</a></li>
+                                <li><a href="#">Blue</a></li>
+                                <li><a href="#">Violet</a></li>
+                                <li><a href="#">Dark blue</a></li>
+                                <li><a href="#">Yellow</a></li>
+                                <li><a href="#">White</a></li>
+                                <li><a href="#">Black</a></li>
+                                <li><a href="#">Orange</a></li>
+                                <li><a href="#">Gray</a></li>
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Size</span>
+                            <ul>
+                                <li><a href="#">XS</a></li>
+                                <li><a href="#">S</a></li>
+                                <li><a href="#">M</a></li>
+                                <li><a href="#">L</a></li>
+                                <li><a href="#">XL</a></li>
+                                <li><a href="#">XXL</a></li>
+                                <li><a href="#">XXXL</a></li>
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-1.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-2.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-3.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-4.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-6.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-7.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-8.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-9.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-10.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-11.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-12.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="product">
+                            <div class="product-cover">
+                                <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                <img src="images/photos/image-13.jpg" alt="product name" />
+                            </div>
+                            <div class="product-details">
+                                <h1><a href="#">Black Dress</a></h1>
+                                <p>Black evening dress of genuine tissue</p>
+                                <div class="product-price">
+                                    <i class="icon-257" title="add to cart"></i>
+                                    $135
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="page-numbers">
+                    <li><span class="page-numbers current">1</span> /</li>
+                    <li><a class="page-numbers" href="#">2</a> /</li>
+                    <li><a class="page-numbers" href="#">3</a> /</li>
+                    <li><a class="page-numbers" href="#">4</a> /</li>
+                    <li><a class="page-numbers" href="#">5</a> /</li>
+                    <li><a class="next page-numbers" href="#">→</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Kullanicilar";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<section class="panel">
+    <br />
+    <br />
+    <header class="panel-heading" style="margin-left:20px;">
+        Kullanicilar
+    </header>
+    <br />
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <div class="clearfix">
+                <br />
+                <div class="btn-group">
+                    <a href="/Admin/KullaniciEkle" class="btn btn-success"> Yeni Kullanici<i class="icon-plus"></i></a>
+                </div>
+
+            </div>
+            <div class="space15"></div>
+            <br />
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Kullanici Adi</th>
+                            <th>Kullanici Emaili</th>
+                            <th>Üye Olma Tarh</th>
+                            <th>Son Giris Tarihi</th>
+                            <th>Rolleri</th>
+                            <th>Rol Ata</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MembershipUser mu in Model)
+                        {
+                            <tr>
+                                <td>@mu.UserName</td>
+                                <td>@mu.Email</td>
+                                <td>@mu.CreationDate</td>
+                                <td>@mu.LastLoginDate</td>
+                                <td><a href="#" class="btn btn-primary rolleri" data-uyeadi="@mu.UserName" id="rolleri">Rolleri</a></td>
+                                <td><a href="/Admin/RolAta/@mu.UserName" class="btn btn-primary">Rol Ekle</a></td>
+
+                                <td><a href="#" uyeadi="@mu.UserName"><i class="fa-solid fa-trash uyeSil"></i></a></td>
+
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section scripts{
+
+
+    <script>
+        $(".rolleri").click(function () {
+            var ka = $(this).data("uyeadi");
+            $.ajax({
+                type: "POST",
+                url: "/Admin/KullaniciRolleri",
+                data: { kullaniciadi: ka },
+                success: function (veri) {
+                    alert(veri);
+                }
+            });
+        });
+    </script>
+    }

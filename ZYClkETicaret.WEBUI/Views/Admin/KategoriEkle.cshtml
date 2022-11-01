@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Kategori Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <br /> <br /> <br /> <br /> <br />
+            <header class="panel-heading">
+                Kategori Ekle
+            </header>
+            <br />
+            <div class="panel-body">
+                <form class="form-horizontal tasi-form" action="/Admin/KategoriEkle" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Adi</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="Adi">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 col-sm-2 control-label">Aciklama</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="Aciklama">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Üst Kategori</label>
+                        <div class="col-lg-10">
+                            <select class="form-control m-bot15" name="ustkategori">
+                                <option value="">--Kategori Sec --</option>
+                                @foreach (var kategori in ViewBag.Kategoriler)
+                                {
+                                    <option value="@kategori.Id">@kategori.Adi</option>
+                                }
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </div>
+</div>
+

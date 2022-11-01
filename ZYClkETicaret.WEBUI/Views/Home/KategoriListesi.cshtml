@@ -1,0 +1,39 @@
+﻿
+
+@model List<ZYClkETicaret.WEBUI.Models.Kategori>
+
+<script src="~/Content/Admin/js/jquery.validate.min.js"></script>
+<script src="~/Content/Admin/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/Content/Admin/js/jquery.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+ /*   $(document).ready(function () {
+
+
+    $('.kategori').click(function () {
+        var id = $(this).attr("name");
+        $.ajax({
+            type: "GET",
+            url:"/Home/ElektronikUrunler",
+            data: {tipId : id},
+            success: function () {
+                alert("basarili");
+            },
+            error: function () {
+                alert('hata olustu');
+            }
+        })
+    })
+
+
+    })*/
+</script>
+
+
+@foreach (var kategori in Model)
+{
+    <li><a class="kategori" href="/Home/@kategori.Adi/@kategori.Id">@kategori.Adi</a></li>
+}
+
+
+

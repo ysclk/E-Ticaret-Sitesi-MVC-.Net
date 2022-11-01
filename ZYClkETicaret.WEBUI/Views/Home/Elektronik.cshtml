@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "Elektronik";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+@model IEnumerable<ZYClkETicaret.WEBUI.Models.Resim>
+@using ZYClkETicaret.WEBUI.Models
+
+<br />
+<br />
+@section head{
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".sepeteAt").click(function () {
+                var uid = $(this).attr("name");
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/SepeteEkle",
+                    data: { id: uid },
+                    success: function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/MiniSepetWidget",
+                            success: function (veri) {
+                                $(".cart-all").html('');
+                                $(".cart-all").html(veri);
+                            }
+
+                        });
+                    },
+                    error: function () {
+                        alert("Ürün Sepete Eklenemedi!!!!");
+                    }
+                });
+            });
+        });
+    </script>
+}
+<div class="content">
+    <div class="container">
+        <div class="all-products-details">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2>Elektronik Ürünler</h2>
+                    <div class="sort-dropdown float-right">
+                        <span>Sayfada Gösterilsin <i class="icon-515" title="515"></i></span>
+                        <ul>
+                            <li><a href="#">10</a></li>
+                            <li><a href="#">20</a></li>
+                            <li><a href="#">50</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="sort-dropdown float-right">
+                        <span>Siralama <i class="icon-515" title="515"></i></span>
+                        <ul>
+                            <li><a href="#">Artan</a></li>
+                            <li><a href="#">Azalan</a></li>
+                            <li><a href="#">En Yeni</a></li>
+                            <li><a href="#">En Eski</a></li>
+                            <li><a href="#">En Cok Tercih Edilen</a></li>
+                            <li><a href="#">En Yüksek Indirimli</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown open-dropdown">
+                            <span><i class="icon-515" title="515"></i>Elektronik Ürünler</span>
+                            <ul>
+                                @foreach (var ktg in ViewBag.Altkategoriler)
+                                {
+                                    <li><a href="#">@ktg.Adi</a></li>
+                                }
+
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Marka</span>
+                            <ul>
+
+                                @foreach (var marka in ViewBag.Markalar)
+                                {
+                                    <li><a href="#">@marka.Adi</a></li>
+                                }
+
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Renk</span>
+                            <ul>
+                                @foreach (var renk in ViewBag.Renkler)
+                                {
+                                    <li><a href="#">@renk.Adi</a></li>
+                                }
+
+
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Ekran Boyutu</span>
+                            <ul>
+                                @foreach (var ekran in ViewBag.Ekranlar)
+                                {
+                                    <li><a href="#">@ekran.Adi</a></li>
+
+                                }
+
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Ram</span>
+                            <ul>
+                                @foreach (var ram in ViewBag.Ramler)
+                                {
+                                    <li><a href="#">@ram.Adi</a></li>
+
+                                }
+
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-6">
+                        <div class="products-dropdown">
+                            <span>Hafiza</span>
+                            <ul style="list-style:none;">
+                                @foreach (var hafiza in ViewBag.Hafizalar)
+                                {
+
+
+                                    <li style="list-style:none;margin-top:4px;"><a style="text-decoration: none;" href="#"><input type="checkbox" style="margin-right: 10px; " value="">@hafiza.Adi</a></li>
+
+                                }
+
+                            </ul>
+                            <div class="products-dropdown-close">Clear <i class="icon-456" title="close"></i></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+
+
+
+
+                    @{
+                        var urunler = (List<Urun>)ViewBag.Urunler;
+                        foreach (var urun in urunler)
+                        {
+                            <div class="col-md-4 col-xs-6">
+                                <div class="product">
+                                    <div class="product-cover">
+                                        <div class="product-cover-hover"><span><a href="/Home/UrunDetay/@urun.Adi">Göster</a></span></div>
+                                        @if (urun.Resim.Count > 0)
+                                        {
+                                            <img src="@urun.Resim.FirstOrDefault(x => x.Varsayilan == true).OrtaYol" alt="@urun.Adi" />
+
+                                        }
+
+                                    </div>
+                                    <div class="product-details">
+                                        <h1><a href="/Home/UrunDetay/@urun.Adi">@urun.Adi</a></h1>
+                                        <p>@urun.Aciklama</p>
+                                        <div class="product-price">
+                                            <i class="icon-257 sepeteAt"  name="@urun.Id" title="add to cart"></i>
+                                            @urun.SatisFiyat
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    }
+
+                </div>
+
+                <ul class="page-numbers" style="list-style:none;">
+
+                    @if (Enumerable.Count(ViewBag.Urunler) > 0)
+
+
+                    {
+                        for (int i = 1; i < Enumerable.Count(ViewBag.Urunler) % 12 - 1; i++)
+                        {
+                            <li><a class="page-numbers" href="#">@i</a> /</li>
+                        }
+
+                        <li><a class="next page-numbers" href="#">→</a></li>
+                    }
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

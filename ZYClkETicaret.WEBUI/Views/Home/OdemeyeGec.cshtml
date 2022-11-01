@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "OdemeyeGec";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+
+<br /> <br />
+<div class="content">
+    <div class="container">
+        <div class="site-title"><div class="site-inside"><span>Checkout</span></div></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="forms-separation">
+                    <div class="login-form-box">
+                        <form class="login-form">
+                            <h3>Giris Yap</h3>
+                            <p>Kullanici veya Email</p>
+                            <input type="text" name="login-username" class="login-line">
+                            <p>Sifre</p>
+                            <input type="password" name="login-password" class="login-line">
+                            <input type="submit" value="Login" class="button-6">
+                            <a href="#" class="lost-password">Sifremi Unuttum!</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <form class="register-form">
+                    <h3>Giris Yapmadan Devam Et</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Isim <span class="neccesary">*</span></p>
+                            <input type="text" name="firstname" class="input-line">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Soyisim <span class="neccesary">*</span></p>
+                            <input type="text" name="lastname" class="input-line">
+                        </div>
+                    </div>
+                    <p>E-mail <span class="neccesary">*</span></p>
+                    <input type="text" name="email" class="input-line">
+                    <p>Sehir <span class="neccesary"></span></p>
+                    <input type="text" name="sehir" class="input-line">
+                    <p>Ilce <span class="neccesary">*</span></p>
+                    <input type="text" name="ilce" class="input-line">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Posta Kodu<span class="neccesary">*</span></p>
+                            <input type="text" name="postakodu" class="input-line">
+                        </div>
+                        <div class="col-md-6">
+                            <p>Telefon <span class="neccesary">*</span></p>
+                            <input type="text" name="telefon" class="input-line">
+                        </div>
+                    </div>
+                    <p>Adres <span class="neccesary">*</span></p>
+                    <input type="text" name="adres" class="input-line">
+                </form>
+            </div>
+            <div class="clear"></div>
+            <div class="col-md-12">
+                <div class="order-title">Siparisiniz</div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <ul class="checkout-info">
+                            <li class="checkout-info-1">Ürün</li>
+                            <li class="checkout-info-2">Toplam</li>
+                        </ul>
+
+                        <div class="checkout-info-box">
+                            <!-- REPEAT PRODUCT -->
+                            <ul class="checkout-product">
+                                <li class="checkout-product-1">Blouse blue x1</li>
+                                <li class="checkout-product-2">$ 350</li>
+                            </ul>
+                            <!-- REPEAT PRODUCT -->
+                            <ul class="checkout-product">
+                                <li class="checkout-product-1">Red dress x1</li>
+                                <li class="checkout-product-2">$ 200</li>
+                            </ul>
+
+                            <ul class="checkout-product">
+                                <li class="checkout-product-1">Black hat x6</li>
+                                <li class="checkout-product-2">$ 3650</li>
+                            </ul>
+
+
+                            <!-- CART DETAILS -->
+                            <ul class="checkout-product o-last">
+                                <li class="checkout-product-1">Cart Subtotal</li>
+                                <li class="checkout-product-2">$ 4200</li>
+                            </ul>
+                            <ul class="checkout-product o-last">
+                                <li class="checkout-product-1">Shipping</li>
+                                <li class="checkout-product-2">Free shipping</li>
+                            </ul>
+                            <ul class="checkout-product last">
+                                <li class="checkout-product-1">Order total</li>
+                                <li class="checkout-product-2">$ 4200</li>
+                            </ul>
+                            <!-- CART DETAILS -->
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="payment-method">
+                            <li><label><input type="radio" id="payment_method_bacs" class="input-radio" name="payment_method" value="bacs" checked="checked">Online Ödeme</label></li>
+                            <li><label><input type="radio" id="payment_method_cheque" class="input-radio" name="payment_method" value="cheque">Havale</label></li>
+                            <li><label><input type="radio" id="payment_method_paypal" class="input-radio" name="payment_method" value="paypal">Paypal</label></li>
+                        </ul>
+                        <a href="#" class="button-6">Siparisi Onayla</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

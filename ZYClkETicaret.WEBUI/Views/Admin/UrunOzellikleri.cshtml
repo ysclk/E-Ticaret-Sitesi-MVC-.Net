@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Urun Ozellikleri";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@model List<ZYClkETicaret.WEBUI.Models.UrunOzellik>
+<br /><br /><br /><br /><br />
+<section class="panel">
+    <header class="panel-heading">
+        Özellikler
+    </header>
+    <div class="panel-body">
+        <div class="adv-table editable-table ">
+            <div class="clearfix">
+                <br />
+                <div class="btn-group">
+                    <a href="/Admin/UrunOzellikEkle" class="btn btn-success"> Yeni Ürün Özelligi<i class="icon-plus"></i></a>
+                </div>
+
+            </div>
+            <div class="space15"></div>
+            <br />
+            <div class="table-responsive">
+
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Ürün Adi</th>
+                            <th>Özellik Tip Adi</th>
+                            <th>Özellik Deger Adi</th>
+                            <th>Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ozellik in Model)
+                        {
+                            <tr>
+                                @if (ozellik.Urun != null)
+                                {
+                                    <td>@ozellik.Urun.Adi</td>
+                                }
+                                @if (ozellik.OzellikTip != null)
+                                {
+                                    <td>@ozellik.OzellikTip.Adi</td>
+                                }
+
+                                @if (ozellik.OzellikDeger != null)
+                                {
+                                    <td>@ozellik.OzellikDeger.Adi</td>
+                                }
+
+                                @if (ozellik.Urun != null && ozellik.OzellikDeger != null && ozellik.OzellikTip != null)
+                                {
+                                    <td><a href='@Url.Action("UrunOzellikSil" , "Admin",new {urunId = @ozellik.UrunID, tipId = @ozellik.OzellikTipID,degerId = @ozellik.OzellikDegerID})'><i class="fa-solid fa-trash"></i></a></td>
+
+                                }
+
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Sepetim";
+    Layout = "~/Views/Shared/SiteLayout.cshtml";
+}
+
+@using ZYClkETicaret.WEBUI.Models
+@model List<ZYClkETicaret.WEBUI.App_Classes.Sepet.SepetItem>
+
+<br />
+<br />
+<script src="~/Content/Admin/js/jquery.validate.min.js"></script>
+<script src="~/Content/Admin/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/Content/Admin/js/jquery.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $('.text').change(function () {
+                var adet = $(this).val();                
+                var fiyat = $(this).attr("name");
+           
+
+                var toplamtutar = parseInt(adet) * parseInt(fiyat);
+
+                $(this).closest("ul").find('li')[5].innerHTML = parseFloat(toplamtutar) ;
+                
+                var val =
+                    $(this).closest("ul").find('li')[5].innerHTML;
+
+                var grandtotal = 0;
+                $(".abc").each(function (index, item) {
+                    var value = parseFloat($(item).find('li')[5].innerHTML);
+                    grandtotal += value;
+                });
+                $(".total").html("");
+                  $(".total").append( grandtotal.toString());
+               
+         //       $('.toplamtutar').text('');
+         //       $('.toplamtutar').append(toplamtutar);
+
+            })
+        })
+
+
+
+    </script>
+
+<div class="content">
+    <div class="container">
+        <h2>Sepetim</h2>
+
+        <div class="shopping-cart">
+            <div class="shopping-cart-products">
+                <ul class="shopping-product-detail">
+                    <li class="shopping-1">Ürün</li>
+                    <li class="shopping-2">Ürün Ismi</li>
+                    <li class="shopping-3">Aciklama</li>
+                    <li class="shopping-4">Sayisi</li>
+                    <li class="shopping-5">Fiyati</li>
+                    <li class="shopping-6">Toplam</li>
+                    <li class="sil">Sil</li>
+                </ul>
+
+                <!-- REPEAT BY PRODUCT -->
+                @foreach (var sepetitem in Model)
+                {
+                    <ul class="shopping-product-detail abc">
+                        <li class="shopping-1">
+                            <img src="~/Content/Zeon/images/photos/image-14.jpg" alt="product image" />
+                        </li>
+                        <li class="shopping-2">
+                            <a href="#">@sepetitem.Urun.Adi</a>
+                        </li>
+                        <li class="shopping-3">
+                            <p>@sepetitem.Urun.Aciklama</p>
+                        </li>
+                        <li class="shopping-4">
+                            <input type="number" step="1" min="1" name="@sepetitem.Urun.SatisFiyat" value="@sepetitem.Adet" title="artir-azalt" class="input-text qty text">
+
+                        </li>
+                        <li class="shopping-5 fiyat">
+                            @sepetitem.Urun.SatisFiyat
+                        </li>
+
+
+                        <li class="shopping-6" >
+                            <span class="toplamtutar">@sepetitem.Tutar</span>
+                            <button>x</button>
+                        </li>
+                       
+                    </ul>
+                }
+
+        
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="/Home/Index" class="button-7">Alisverise Devam Et</a>
+                </div>
+               
+                <div class="col-md-4">
+                    <div class="checkout-total">
+                        <b>Tüm Toplam:</b>
+                        <label class="total">@Model.Sum(c => c.Tutar)</label>
+                        <br /><br /><br />
+                        <a href="/Home/OdemeyeGec" class="btn btn-primary">Ödemeye Gec</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,41 @@
+﻿
+@model List<ZYClkETicaret.WEBUI.Models.OzellikDeger>
+<script src="~/Content/Admin/js/jquery.validate.min.js"></script>
+<script src="~/Content/Admin/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/Content/Admin/js/jquery.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+    $('#degerler').change(function () {
+        var id = $(this).val();
+        $.ajax({
+            type: "GET",
+            url:"/admin/UrunOzellikEkle",
+            data: {tipId : id},
+            success: function () {
+             //   alert("basarili" +id);
+
+            },
+            error: function () {
+                alert("hatali");
+            }
+        })
+    })
+
+
+    })
+</script>
+<div class="form-group">
+    <label class="col-lg-2 control-label">Özellik Deger</label>
+    <div class="col-lg-10">
+        <select class="form-control m-bot15" name="OzellikDegerID" id="degerler">
+            @foreach (var deger in Model)
+            {
+                <option value="@deger.Id">@deger.Adi</option>
+            }
+
+        </select>
+    </div>
+</div>

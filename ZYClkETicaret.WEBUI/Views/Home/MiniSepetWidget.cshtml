@@ -1,0 +1,86 @@
+﻿
+@model ZYClkETicaret.WEBUI.App_Classes.Sepet
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $(".urunSil").click(function UrunSil() {
+                var uId = $(this).attr("name");
+                $.ajax({
+                    type: "Get",
+                    url: "/Home/SepetUrunAdetDusur",
+                    data: { id: uId },
+                    success: function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/MiniSepetWidget",
+                            success: function (veri) {
+                                $(".cart-all").html('');
+                                $(".cart-all").html(veri);
+                            }
+
+                        });
+
+                    },
+                    error: function () {
+                        alert("Ürün sepete eklenemedi!!!!");
+                    }
+                })
+            })
+        });
+
+    </script>
+
+    <div class="cart-all">
+        <i class="icon-19" title="19"></i>
+        @if (Model != null)
+        {
+            @Model.ToplamTutar.ToString("C2");
+        }
+        else
+        {
+            <span>0 TL</span>
+        }
+        <div class="inside-cart">
+            <p>
+                @if (Model != null)
+                {
+
+                    <span>Sepette toplam @Model.Urunler.Sum(x => x.Adet) Adet Ürün Bulunmaktadir</span>
+                    
+                    <a href="/Home/Sepetim">Sepete Git</a>
+                }
+                else
+                {
+                    <span> Sepette ürün yok.</span>
+                }
+            </p>
+            <ul>
+                @if (Model != null)
+                {
+                    foreach (var item in Model.Urunler)
+                    {
+                        <li>
+                            <div class="inside-cart-image">
+                                @if (item.Urun.Resim != null)
+                                {
+                                    <img src="@item.Urun.Resim.FirstOrDefault(x=>x.Varsayilan == true).OrtaYol" alt="product name" />
+                                }
+
+                            </div>
+                            <a href="#" class="urunSil" name="@item.Urun.Id">x</a>
+                            <a href="/Home/UrunDetay/@item.Urun.Adi">@item.Urun.Adi</a>
+
+
+                            <p>Tutar: @item.Tutar.ToString("C2")</p>
+                            <p>Adet: @item.Adet</p>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+        </div>
+    </div>
