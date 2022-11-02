@@ -39,7 +39,26 @@
                
          //       $('.toplamtutar').text('');
          //       $('.toplamtutar').append(toplamtutar);
+                var uid = $(this).attr("tabindex");
+                $.ajax({
+                    type: "GET",
+                    url: "/Home/SepeteEkle",
+                    data: { id: uid },
+                    success: function () {
+                        $.ajax({
+                            type: "GET",
+                            url: "/Home/MiniSepetWidget",
+                            success: function (veri) {
+                                $(".cart-all").html('');
+                                $(".cart-all").html(veri);
+                            }
 
+                        });
+                    },
+                    error: function () {
+                        alert("Ürün Sepete Eklenemedi!!!!");
+                    }
+                });
             })
         })
 
@@ -60,7 +79,6 @@
                     <li class="shopping-4">Sayisi</li>
                     <li class="shopping-5">Fiyati</li>
                     <li class="shopping-6">Toplam</li>
-                    <li class="sil">Sil</li>
                 </ul>
 
                 <!-- REPEAT BY PRODUCT -->
@@ -68,7 +86,10 @@
                 {
                     <ul class="shopping-product-detail abc">
                         <li class="shopping-1">
-                            <img src="~/Content/Zeon/images/photos/image-14.jpg" alt="product image" />
+                            @if (sepetitem.Urun.Resim != null)
+                            {
+                                <img src="@sepetitem.Urun.Resim.FirstOrDefault(x=>x.Varsayilan == true).OrtaYol" alt="product name" />
+                            }
                         </li>
                         <li class="shopping-2">
                             <a href="#">@sepetitem.Urun.Adi</a>
@@ -77,7 +98,7 @@
                             <p>@sepetitem.Urun.Aciklama</p>
                         </li>
                         <li class="shopping-4">
-                            <input type="number" step="1" min="1" name="@sepetitem.Urun.SatisFiyat" value="@sepetitem.Adet" title="artir-azalt" class="input-text qty text">
+                            <input type="number" step="1" min="1" name="@sepetitem.Urun.SatisFiyat" value="@sepetitem.Adet" title="artir-azalt" class="input-text qty text" tabindex="@sepetitem.Urun.Id">
 
                         </li>
                         <li class="shopping-5 fiyat">
@@ -85,9 +106,9 @@
                         </li>
 
 
-                        <li class="shopping-6" >
+                        <li class="shopping-6">
                             <span class="toplamtutar">@sepetitem.Tutar</span>
-                            <button>x</button>
+                            <!--<button>x</button>-->
                         </li>
                        
                     </ul>

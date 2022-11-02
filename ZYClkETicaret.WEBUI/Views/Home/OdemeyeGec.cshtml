@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/SiteLayout.cshtml";
 }
 
+@using ZYClkETicaret.WEBUI.Models
+@model List<ZYClkETicaret.WEBUI.App_Classes.Sepet.SepetItem>
 
-<br /> <br />
+<br />
+<br />
 <div class="content">
     <div class="container">
-        <div class="site-title"><div class="site-inside"><span>Checkout</span></div></div>
+        <div class="site-title"><div class="site-inside"><span>Ödeme</span></div></div>
         <div class="row">
             <div class="col-md-6">
                 <div class="forms-separation">
@@ -69,37 +72,15 @@
                         </ul>
 
                         <div class="checkout-info-box">
-                            <!-- REPEAT PRODUCT -->
-                            <ul class="checkout-product">
-                                <li class="checkout-product-1">Blouse blue x1</li>
-                                <li class="checkout-product-2">$ 350</li>
-                            </ul>
-                            <!-- REPEAT PRODUCT -->
-                            <ul class="checkout-product">
-                                <li class="checkout-product-1">Red dress x1</li>
-                                <li class="checkout-product-2">$ 200</li>
-                            </ul>
-
-                            <ul class="checkout-product">
-                                <li class="checkout-product-1">Black hat x6</li>
-                                <li class="checkout-product-2">$ 3650</li>
-                            </ul>
+                            @foreach (var sepetitem in Model)
+                            {
+                                <ul class="checkout-product">
+                                    <li class="checkout-product-1">@sepetitem.Urun.Adi</li>
+                                    <li class="checkout-product-2">@sepetitem.Tutar</li>
+                                </ul>
+                            }
 
 
-                            <!-- CART DETAILS -->
-                            <ul class="checkout-product o-last">
-                                <li class="checkout-product-1">Cart Subtotal</li>
-                                <li class="checkout-product-2">$ 4200</li>
-                            </ul>
-                            <ul class="checkout-product o-last">
-                                <li class="checkout-product-1">Shipping</li>
-                                <li class="checkout-product-2">Free shipping</li>
-                            </ul>
-                            <ul class="checkout-product last">
-                                <li class="checkout-product-1">Order total</li>
-                                <li class="checkout-product-2">$ 4200</li>
-                            </ul>
-                            <!-- CART DETAILS -->
                         </div>
 
                     </div>

@@ -179,10 +179,22 @@ namespace ZYClkETicaret.WEBUI.Controllers
 
         }
         public ActionResult OdemeyeGec()
-        {        
+        {
+
+            Sepet s = new Sepet();
+            if (HttpContext.Session["AktifSepet"] != null)
+            {
+                s = (Sepet)HttpContext.Session["AktifSepet"];
+                ViewBag.Urunler = s.Urunler;
+            }
+            else
+            {
+                ViewBag.Mesaj = "Sepet Bos";
+            }
 
 
-            return View();
+            return View(s.Urunler);
+        
 
         }
 
